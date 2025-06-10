@@ -1,13 +1,13 @@
 class Mvnenv < Formula
   desc "Easily manage and switch between multiple Maven versions"
   homepage "https://github.com/felipearpa/mvnenv"
-  url "https://github.com/felipearpa/mvnenv/archive/refs/tags/v0.0.3.tar.gz"
-  sha256 "55df24b56171e71698ee8a8e5f179add435a409894a21a55c0359edc732a00e8"
+  url "https://github.com/felipearpa/mvnenv/archive/refs/tags/v0.0.4.tar.gz"
+  sha256 "4864f6005bacb29805c2bf6a61acd117577b37af1f80f24f8bcdd15eedb59755"
   license "LGPL-3.0"
   head "https://github.com/felipearpa/mvnenv.git"
 
   def install
-    libexec.install Dir["*", "!test", "!test/*"]
+    libexec.install Dir["*"].reject { |f| f == "test" }
     bin.write_exec_script libexec/"bin/mvnenv"
     bin.write_exec_script libexec/"bin/mvn"
   end
